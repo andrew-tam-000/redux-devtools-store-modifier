@@ -6,7 +6,7 @@ import Root from './components/Root';
 import './index.css';
 import reduxLogger from 'redux-logger';
 
-import adjustableStoreEnhancer from './adjustableStoreEnhancer';
+import adjustableStoreEnhancer from './redux/adjustableStoreEnhancer';
 
 const initialState = {
     oneo: 'two',
