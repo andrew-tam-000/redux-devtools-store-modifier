@@ -33,14 +33,20 @@ class Branch extends Component {
                 <div onClick={() => this.setState({open: !this.state.open})} className='state__branch-label'>
                     { icon } { _.last(path) }
                 </div>
-                <div className={contentClassName}>
-                    {
-                        _.map(
-                            keys,
-                            key => <Tree dispatch={dispatch} state={state} path={[...path, key]} />
-                        )
-                    }
-                </div>
+                {
+                    this.state.open ? (
+                        <div className={contentClassName}>
+                            {
+                                _.map(
+                                    keys,
+                                    key => <Tree dispatch={dispatch} state={state} path={[...path, key]} />
+                                )
+                            }
+                        </div>
+                    ) : (
+                        null
+                    )
+                }
             </div>
         );
     }

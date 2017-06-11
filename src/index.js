@@ -5,24 +5,9 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import Root from './components/Root';
 import './index.css';
 import reduxLogger from 'redux-logger';
+import initialState from './initialState';
 
 import adjustableStoreEnhancer from './redux/adjustableStoreEnhancer';
-
-const initialState = {
-    oneo: 'two',
-    scoreboard: {
-        test: [
-            {
-                val: 'wow',
-                test: {
-                    more: 'wow'
-                }
-
-            }
-        ]
-    },
-    ps: 'wow'
-};
 
 const root = state => ({state});
 const ConnectedRoot = connect(root)(Root);
@@ -32,11 +17,13 @@ const reducer = (state = {}, action) => {
 };
 
 const store = createStore(
+    reducer,
+    /*
     combineReducers({
-        oneo: reducer,
         scoreboard: reducer,
         ps: reducer
     }),
+    */
     initialState,
     compose(
         applyMiddleware(reduxLogger),

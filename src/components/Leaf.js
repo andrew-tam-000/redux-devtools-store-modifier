@@ -28,6 +28,8 @@ class Leaf extends Component {
                     { _.last(path) }
                 </div>
                 <input
+                    ref={ input => this._input = input }
+                    onKeyPress={ e => this.updateInputViaEnter(e) }
                     onBlur={ () => this.dispatchChange(path, this.state.value) }
                     onFocus={ () => this.toggleListening(false) }
                     onChange={ e => this.updateInput(e) }
@@ -36,6 +38,13 @@ class Leaf extends Component {
                 />
             </div>
         );
+    }
+
+    updateInputViaEnter(e) {
+        if ( e.key === 'Enter') {
+            this.dispatchChange(this.props.path, this.state.value);
+            this._input.blur();
+        }
     }
 
     dispatchChange(...args) {
