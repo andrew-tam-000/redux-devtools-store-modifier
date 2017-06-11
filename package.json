@@ -2,7 +2,7 @@
   "name": "redux-devtools-store-modifier",
   "version": "1.0.0",
   "description": "",
-  "main": "libs/components/Root.js",
+  "main": "lib/components/Root.js",
   "dependencies": {
     "lodash": "^4.17.4",
     "react": "^15.5.4",
@@ -55,7 +55,7 @@
   "scripts": {
     "serve": "serve -s build",
     "build-plugin": "rm -rf build-plugin; cp -r build build-plugin; cp -rf src/browser/ build-plugin/",
-    "compile": "babel src -d libs",
+    "compile": "babel src -d lib",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js && npm run build-plugin",
     "test": "node scripts/test.js --env=jsdom"
