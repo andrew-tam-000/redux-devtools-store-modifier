@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { connect } from 'react-redux';
 import { updateStore }from '../redux/actions';
 
 class Leaf extends Component {
@@ -40,7 +39,7 @@ class Leaf extends Component {
     }
 
     dispatchChange(...args) {
-        this.props.dispatchChange(...args);
+        this.props.dispatch(updateStore(...args));
         this.toggleListening(true);
     }
 
@@ -59,11 +58,4 @@ class Leaf extends Component {
     }
 }
 
-export default connect(
-    state => ({state}),
-    dispatch => ({
-        dispatchChange: (...args) => {
-            dispatch(updateStore(...args));
-        }
-    })
-)(Leaf);
+export default Leaf;

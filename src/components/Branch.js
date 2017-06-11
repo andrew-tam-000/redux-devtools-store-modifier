@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import _ from 'lodash';
 import Tree from './Tree';
 
@@ -14,7 +13,7 @@ class Branch extends Component {
     }
 
     render() {
-        const { state, path } = this.props;
+        const { state, path, dispatch } = this.props;
 
         const keys = _.keys(_.get(state, path));
 
@@ -38,7 +37,7 @@ class Branch extends Component {
                     {
                         _.map(
                             keys,
-                            key => <Tree path={[...path, key]} />
+                            key => <Tree dispatch={dispatch} state={state} path={[...path, key]} />
                         )
                     }
                 </div>
@@ -47,4 +46,4 @@ class Branch extends Component {
     }
 }
 
-export default connect(state => ({state}))(Branch);
+export default Branch;

@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import Tree from './Tree';
 
-const Root = ({state}) => {
+const Root = ({state, dispatch}) => {
 
     const paths = _.keys(state);
 
@@ -12,7 +12,7 @@ const Root = ({state}) => {
             {
                 _.map(
                     paths,
-                    path => <Tree state={state} path={[path]} key={path}/>
+                    path => <Tree dispatch={dispatch} state={state} path={[path]} key={path}/>
                 )
             }
         </div>

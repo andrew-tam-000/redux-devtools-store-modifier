@@ -4,9 +4,7 @@ import _ from 'lodash';
 import Branch from './Branch';
 import Leaf from './Leaf';
 
-import { connect } from 'react-redux';
-
-const Tree = ({state, path}) => {
+const Tree = ({state, path, dispatch}) => {
 
     const value = _.get(state, path);
 
@@ -16,13 +14,13 @@ const Tree = ({state, path}) => {
         <div className='state__tree'>
             {
                 hasKeys ? (
-                    <Branch path={path}/>
+                    <Branch dispatch={dispatch} state={state} path={path}/>
                 ) : (
-                    <Leaf path={path} />
+                    <Leaf dispatch={dispatch} state={state} path={path} />
                 )
             }
         </div>
     );
 }
 
-export default connect(state => ({state}))(Tree);
+export default Tree;
