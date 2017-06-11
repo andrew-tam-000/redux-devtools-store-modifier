@@ -54,6 +54,7 @@
   "scripts": {
     "serve": "serve -s build",
     "build-plugin": "rm -rf build-plugin; cp -r build build-plugin; cp -rf src/browser/ build-plugin/",
+    "compile": "babel src -d libs",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js && npm run build-plugin",
     "test": "node scripts/test.js --env=jsdom"
@@ -87,7 +88,7 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react"
     ]
   },
   "eslintConfig": {
