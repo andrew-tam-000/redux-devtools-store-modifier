@@ -48,6 +48,7 @@ class Leaf extends Component {
     }
 
     dispatchChange(...args) {
+        console.error("Dispatching", this.props.dispatch, args);
         this.props.dispatch(updateStore(...args));
         this.toggleListening(true);
     }
