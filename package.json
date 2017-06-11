@@ -2,7 +2,7 @@
   "name": "redux-devtools-store-modifier",
   "version": "1.0.0",
   "description": "",
-  "main": "src/components/Root.js",
+  "main": "libs/components/Root.js",
   "dependencies": {
     "lodash": "^4.17.4",
     "react": "^15.5.4",
