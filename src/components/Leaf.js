@@ -24,8 +24,8 @@ class Leaf extends Component {
 
         return (
             <div className='state__leaf'>
-                <div className='state__leaf-label'>
-                    { _.last(path) }
+                <div onClick={() => this._input.focus() }className='state__leaf-label'>
+                    { _.last(path) }:
                 </div>
                 <input
                     ref={ input => this._input = input }
@@ -33,7 +33,7 @@ class Leaf extends Component {
                     onBlur={ () => this.dispatchChange(path, this.state.value) }
                     onFocus={ () => this.toggleListening(false) }
                     onChange={ e => this.updateInput(e) }
-                    className='state__leaf-content'
+                    className='state__input'
                     value={value}
                 />
             </div>

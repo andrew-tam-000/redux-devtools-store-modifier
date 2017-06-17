@@ -1,33 +1,84 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
 .state {
-    color: #a1c659;
+    font-size: 11px;
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+    color: #6fb3d2;
     overflow-y: auto;
 }
 
+.state__button {
+    text-transform: uppercase;
+    border: 1px solid #6fb3d2;
+    padding: .1em .5em;
+    cursor: pointer;
+    transition: color .2s, background-color .2s;
+}
+
+.state__button:hover {
+    background-color: #6fb3d2;
+    color: white;
+}
+
+.state__button + .state__button {
+    border-left: none;
+}
+
+.state__button,
+.state__button-set {
+    display: inline-block;
+}
+
 .state__branch {
-    padding-left: 10px;
+    position: relative;
+}
+
+.state__leaf,
+.state__branch {
+    padding-left: 1.5em;
+}
+
+.state__branch-label-icon {
+    position: absolute;
+    left: .6em;
 }
 
 .state__leaf {
     overflow: hidden;
-    padding-left: 10px;
 }
 
-.state__leaf-content {
+.state__input {
+    border: none;
     background-color: transparent;
     margin-left: 10px;
-    color: #6fb3d2;
+    color: #a1c659;
     float: left;
     font-weight: 600;
+    position: relative;
+    margin-bottom: -1px;
+}
+
+.state__input:focus {
+    outline: none;
+    border-bottom: 1px solid #a1c659;
 }
 
 .state__leaf-label {
     float: left;
+    cursor: pointer;
+}
+
+.state__branch-row .state__button-set {
+    margin-left: 1em;
+}
+
+.state__branch-row,
+.state__leaf {
+    padding-top: .3em;
+    padding-bottom: .3em;
+}
+
+.state__branch-label {
+    cursor: pointer;
+    display: inline-block;
 }
 
 .state__branch-content.state__branch-content--hide {

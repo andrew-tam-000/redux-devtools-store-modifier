@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import Tree from './Tree';
+import ButtonSet from './ButtonSet';
 
 class Branch extends Component {
 
@@ -28,10 +29,28 @@ class Branch extends Component {
             '+'
         );
 
+        const labelClassname = [
+            'state__branch-label',
+            this.state.open ? (
+                'state__branch-label--open'
+            ) : (
+                'state__branch-label--close'
+            )
+        ].join(' ');
+
+
         return (
             <div className='state__branch'>
-                <div onClick={() => this.setState({open: !this.state.open})} className='state__branch-label'>
-                    { icon } { _.last(path) }
+                <div className='state__branch-row'>
+                    <div onClick={() => this.setState({open: !this.state.open})} className={labelClassname}>
+                        <span className='state__branch-label-icon'>
+                            { icon } 
+                        </span>
+                        <span className='state__branch-label-name'>
+                            { _.last(path) }
+                        </span>
+                    </div>
+                    <ButtonSet dispatch={dispatch} state={state} path={path} />
                 </div>
                 {
                     this.state.open ? (
