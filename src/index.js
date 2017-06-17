@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import Root from './components/Root';
-import './index.css';
+
+// Enable in dev mode
+//import './index.css';
+
+
 import reduxLogger from 'redux-logger';
 import initialState from './initialState';
 

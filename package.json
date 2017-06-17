@@ -4,6 +4,7 @@
   "description": "",
   "main": "lib/components/Root.js",
   "dependencies": {
+    "babel-plugin-inline-import": "^2.0.5",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -92,6 +93,13 @@
     "presets": [
       "react",
       "latest"
+    ],
+    "plugins": [
+      ["babel-plugin-inline-import", {
+        "extensions": [
+          ".css"
+        ]
+      }]
     ]
   },
   "eslintConfig": {
